@@ -33,7 +33,7 @@ class Pila:
         return self.items
 
 
-#Automata.
+#Clase Automata Sudafrica.
 class Sudafrica:
 
     def __init__(self,arr):
