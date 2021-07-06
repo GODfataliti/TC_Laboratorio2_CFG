@@ -45,7 +45,7 @@ def calculoSecuencia(dicc):
             print(f'Persona {id_persona}: Variante JB: {resultadoJB}%\t Variante Cal: {resultadoCal}%\t Variante Sud: {resuladoSud}%')
     
     except Exception as e:
-        print(f'[!] ERROR: {e} [!]')
+        print(f'[!] ERROR: {e} [!]\n')
 
 
 
@@ -99,16 +99,19 @@ def main():
             for i in range(len(doc)):
                 lineas.append(doc[i].split())
             
-            print(lineas)
+            print(f'{lineas}')
             resultado = variante(lineas)
             calculoSecuencia(resultado)
         
         elif(opc=='2'):
             print("Escriba la secuencia: ", end="")
+            lista = []
             secuencia = input()
             secuencia = secuencia.split()
-            print(secuencia)
-            resultado = variante(lineas)
+            secuencia = list(secuencia)
+            lista.append(secuencia)
+            print(lista)
+            resultado = variante(lista)
             calculoSecuencia(resultado)
 
         else:
