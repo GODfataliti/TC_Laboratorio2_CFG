@@ -1,3 +1,4 @@
+from funciones import Pila
 
 class JapanBrasil:
 
@@ -13,18 +14,18 @@ class JapanBrasil:
     
     def q1(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q1: {self.arr}')
+        #print(f'Pila q1: {self.pila.mostrar()}')
 
-        #Si hay un U en el arr y una U en la pila, apilo una U.
+        #Si hay un U en el arr y una Z en la pila, apilo una U.
         if(len(self.arr)>0):
-            if(self.arr[0].upper()=='U' and self.pila.items[-1].upper()=='U'):
+            if(self.arr[0].upper()=='U' and self.pila.items[-1].upper()=='Z'):
                 self.arr.pop(0) #Borra el elemento visto del arr
                 self.pila.apilar('U')
                 return self.q1()
 
-            #Si hay un U en el arr y una Z en la pila, apilo una U.
-            elif(self.arr[0].upper()=='U' and self.pila.items[-1].upper()=='Z'):
+            #Si hay un U en el arr y una U en la pila, apilo una U.
+            elif(self.arr[0].upper()=='U' and self.pila.items[-1].upper()=='U'):
                 self.arr.pop(0)
                 self.pila.apilar('U')
                 return self.q1()
@@ -36,8 +37,8 @@ class JapanBrasil:
     
     def q2(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q2: {self.arr}')
+        #print(f'Pila q2: {self.pila.mostrar()}')
 
         #Si hay una U en la pila, desapilo.
         if(self.pila.items[-1].upper()=='U'):
@@ -46,8 +47,8 @@ class JapanBrasil:
     
     def q3(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q3: {self.arr}')
+        #print(f'Pila q3: {self.pila.mostrar()}')
 
         #Si hay una C en el arr, y una U en la pila, desapila.
         if(self.arr[0].upper()=='C' and self.pila.items[-1].upper()=='U'):
@@ -68,8 +69,8 @@ class JapanBrasil:
     
     def q4(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q4: {self.arr}')
+        #print(f'Pila q4: {self.pila.mostrar()}')
 
         #Si hay una A en el arr, y una A en la pila, apilamos A.
         if(self.arr[0].upper()=='A' and self.pila.items[-1].upper()=='A'):
@@ -85,8 +86,8 @@ class JapanBrasil:
         
     def q5(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q5: {self.arr}')
+        #print(f'Pila q5: {self.pila.mostrar()}')
 
         #Si hay una G en el arr, y un A en la pila, desapilamos.
         if(len(self.arr)>0):
@@ -97,8 +98,8 @@ class JapanBrasil:
     
     def q6(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q6: {self.arr}')
+        #print(f'Pila q6: {self.pila.mostrar()}')
 
         #si hay una G, eliminado.
         if(len(self.arr)>0):
@@ -113,8 +114,10 @@ class JapanBrasil:
     
     def q7(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q7: {self.arr}')
+        #print(f'Pila q7: {self.pila.mostrar()}')
+        resultado = ''
+        if(len(self.arr)==0 and len(self.pila.items)==0):
+            resultado = 'JaponBrasil'
 
-        resultado = 'JaponBrasil'
         return resultado

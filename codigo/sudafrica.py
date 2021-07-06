@@ -1,3 +1,4 @@
+from funciones import Pila
 
 #Clase Automata Sudafrica.
 class Sudafrica:
@@ -5,6 +6,7 @@ class Sudafrica:
     def __init__(self,arr):
         self.pila = Pila()
         self.arr = list(arr)
+        self.comentario = False
         #e: no cambia la cadena, desapila.
 
     
@@ -16,8 +18,9 @@ class Sudafrica:
     
     def q1(self):
         
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q1: {self.arr}')
+        #print(f'Pila q1: {self.pila.mostrar()}')
+
         if(len(self.arr)>0):
             #Si hay un A en el arr y una Z en la pila, apilo una A.
             if(self.arr[0].upper()=='A' and self.pila.items[-1].upper()=='Z'):
@@ -40,8 +43,8 @@ class Sudafrica:
     
     def q2(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q2: {self.arr}')
+        #print(f'Pila q2: {self.pila.mostrar()}')
         
         #Si hay un C en el arr y una C en la pila, apilo una C.
         if(self.arr[0].upper()=='C' and self.pila.items[-1].upper()=='C'):
@@ -62,9 +65,9 @@ class Sudafrica:
             return self.q4()
     
     def q3(self):
-
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        
+        #print(f'Arr q3: {self.arr}')
+        #print(f'Pila q3: {self.pila.mostrar()}')
         
         #No se modifica el arr, y si hay C en la pila, desapila.
         if(self.pila.items[-1].upper()=='C'):
@@ -73,8 +76,8 @@ class Sudafrica:
     
     def q4(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q4: {self.arr}')
+        #print(f'Pila q4: {self.pila.mostrar()}')
 
         #Si hay G en el arr, y una A en la pila, desapilo.
         if(self.arr[0].upper()=='G' and self.pila.items[-1].upper()=='A'):
@@ -88,8 +91,8 @@ class Sudafrica:
     
     def q5(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q5: {self.arr}')
+        #print(f'Pila q5: {self.pila.mostrar()}')
 
         #Si hay una G en el arr, elimino la G.
         if(len(self.arr)>0):
@@ -104,8 +107,9 @@ class Sudafrica:
     
     def q6(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
-
-        resultado = 'Sudafrica'
+        #print(f'Arr q6: {self.arr}')
+        #print(f'Pila q6: {self.pila.mostrar()}')
+        resultado = ''
+        if(len(self.arr)==0 and len(self.pila.items)==0):
+            resultado = 'Sudafrica'
         return resultado

@@ -1,3 +1,4 @@
+from funciones import Pila
 
 class California:
 
@@ -14,8 +15,8 @@ class California:
 
     def q1(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q1: {self.arr}')
+        #print(f'Pila q1: {self.pila.mostrar()}')
 
         if(len(self.arr)>0):
             #Si hay un U en el arr y una Z en la pila, apilo una U.
@@ -44,8 +45,8 @@ class California:
 
     def q2(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q2: {self.arr}')
+        #print(f'Pila q2: {self.pila.mostrar()}')
         
         if(len(self.arr)>0):
             #Si hay un C en el arr y una U en la pila, desapila.
@@ -62,8 +63,8 @@ class California:
 
     def q3(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q3: {self.arr}')
+        #print(f'Pila q3: {self.pila.mostrar()}')
 
         if(len(self.arr)>0):
             #Si hay un C en el arr y una C en la pila, apilo una C.
@@ -80,8 +81,8 @@ class California:
     
     def q4(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q4: {self.arr}')
+        #print(f'Pila q4: {self.pila.mostrar()}')
         
         if(len(self.arr)>0):
             #Si hay un G en el arr y una C en la pila, desapila.
@@ -97,8 +98,8 @@ class California:
 
     def q5(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q5: {self.arr}')
+        #print(f'Pila q5: {self.pila.mostrar()}')
 
         if(len(self.arr)>0):
             #Si hay un A en el arr elimino la A.
@@ -112,8 +113,10 @@ class California:
         
     def q6(self):
 
-        print(f'Arr: {self.arr}')
-        print(f'Pila: {self.pila.mostrar()}')
+        #print(f'Arr q6: {self.arr}')
+        #print(f'Pila q6: {self.pila.mostrar()}')
+        resultado = ''
+        if(len(self.arr)==0 and len(self.pila.items)==0):
+            resultado = 'California'
 
-        resultado = 'California'
         return resultado

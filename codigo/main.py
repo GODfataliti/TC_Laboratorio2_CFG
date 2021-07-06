@@ -1,80 +1,78 @@
 from japonbrasil import JapanBrasil
 from sudafrica import Sudafrica
 from california import California
+from funciones import leerArchivo
+import json
 
 
-#Funcion para leer archivos
-def leerArchivo(doc):
-	try:
-		f = open(doc,'r')
-		lineas = list(f.readlines())
-		#Mandar a la 2da funcion que separe el archivo.
-		f.close()
-		return lineas
-	except Exception as e:
-		print(f'[!] ERROR: {e} [!]\n')
+def calculoSecuencia(dicc):
+    pass
 
-#Clase Pila.
-class Pila:
-    def __init__(self):
-        self.items= []
 
-    def apilar(self, x):
-        self.items.append(x)
-
-    def desapilar(self):
-        try:
-            return self.items.pop()
-        except IndexError:
-            raise ValueError("La pila está vacía")
-    
-    def mostrar(self):
-        return self.items
 
 #Funcion que crea las clases.
 def variante(arr):
 
+    personas = []
     lista = []
+    for persona in range(len(arr)):
+        for indice in range(len(arr)):
+            clase1 = Sudafrica(arr[persona][indice])
+            clase2 = JapanBrasil(arr[persona][indice])
+            clase3 = California(arr[persona][indice])
 
-    for indice in range(len(arr)):
-        clase1 = Sudafrica(arr[indice])
-        clase2 = JapanBrasil(arr[indice])
-        clase3 = California(arr[indice])
+            result1 = clase1.q0()
+            result2 = clase2.q0()
+            result3 = clase3.q0()
 
-        result1 = clase1.q0()
-        result2 = clase2.q0()
-        result3 = clase3.q0()
-
-        lista.append(result1)
-        lista.append(result2)
-        lista.append(result3)
-        print(lista)
+            if(result1==None):
+                result1 = ''
+            if(result2==None):
+                result2=''
+            if(result3==None):
+                result3=''
+            lista.append(result1)
+            lista.append(result2)
+            lista.append(result3)
+            #print(lista)
+            
+        dic = dict(id_persona=persona, secuencia=lista)
+        personas.append(dic)
         lista = []
+    
+    print(json.dumps(personas, sort_keys=False, indent=4))
+    return personas
 
 
 #Menu main.
 def main():
 
     #MENU
-    print('1.Ingresar Archivo\n2.Escribir texto.\n OPC: ', end="")
-    opc= str(input())
-    if(opc=='1'):
-        print('Nombre del Archivo: ', end="")
-        archivo = input()
-        doc = leerArchivo(archivo)
-        doc = doc[0].split()
-        print(doc)
-        variante(doc)
-    
-    elif(opc=='2'):
-        print("Escriba la secuencia: ", end="")
-        secuencia = input()
-        secuencia = secuencia.split()
-        print(secuencia)
-        variante(secuencia)
+    try:
+        print('1.Ingresar Archivo\n2.Escribir texto.\n OPC: ', end="")
+        opc= str(input())
+        if(opc=='1'):
+            print('Nombre del Archivo: ', end="")
+            archivo = input()
+            doc = leerArchivo(archivo)
+            lineas = []
+            for i in range(len(doc)):
+                lineas.append(doc[i].split())
+            
+            print(lineas)
+            variante(lineas)
+        
+        elif(opc=='2'):
+            print("Escriba la secuencia: ", end="")
+            secuencia = input()
+            secuencia = secuencia.split()
+            print(secuencia)
+            variante(secuencia)
 
-    else:
-        print("Opcion incorrecta.")
+        else:
+            print("Opcion incorrecta.")
+    except Exception as e:
+        print(f'[!] ERROR: {e} [!]')
 
 
 
