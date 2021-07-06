@@ -6,7 +6,43 @@ import json
 
 
 def calculoSecuencia(dicc):
-    pass
+    variantes = ['Sudafrica','California','JaponBrasil']
+
+    elementos = dicc
+    contadorJB = 0
+    contadorCal = 0
+    contadorSud = 0
+    cadena = 0
+    try:
+
+        for i in range(len(elementos)):
+            cadena = elementos[i]['cadena']
+            print(f'cantidad cadena: {cadena}')
+            for secuencia,valor in elementos[i].items():
+
+                print(f'{secuencia}: {valor}')
+                #Estan malos los if....
+                if(valor=='Sudafrica'):
+                    contadorSud+=1
+                if(valor=='California'):
+                    contadorCal+=1
+                if(valor=='JaponBrasil'):
+                    contadorJB+=1
+                
+            #calculo
+            resultadoJB = int((contadorJB / cadena)*100)
+            resultadoCal = int((contadorCal / cadena)*100)
+            resuladoSud = int((contadorSud / cadena)*100)
+            print(f'Variante JB: {resultadoJB}\t Variante Cal: {resultadoCal}\t Variante Sud: {resuladoSud}')
+    
+    except Exception as e:
+        print(f'[!] ERROR: {e} [!]')
+
+    
+    
+
+            
+
 
 
 
@@ -36,7 +72,7 @@ def variante(arr):
             lista.append(result3)
             #print(lista)
             
-        dic = dict(id_persona=persona, secuencia=lista)
+        dic = dict(id_persona=persona, secuencia=lista,cadena=(len(arr)))
         personas.append(dic)
         lista = []
     
@@ -60,14 +96,16 @@ def main():
                 lineas.append(doc[i].split())
             
             print(lineas)
-            variante(lineas)
+            resultado = variante(lineas)
+            calculoSecuencia(resultado)
         
         elif(opc=='2'):
             print("Escriba la secuencia: ", end="")
             secuencia = input()
             secuencia = secuencia.split()
             print(secuencia)
-            variante(secuencia)
+            resultado = variante(lineas)
+            calculoSecuencia(resultado)
 
         else:
             print("Opcion incorrecta.")
