@@ -13,6 +13,7 @@ class JapanBrasil:
             return self.q1()
     
     def q1(self):
+        
         #print(f'Arr q1: {self.arr}')
         #print(f'Pila q1: {self.pila.mostrar()}')
 
@@ -40,7 +41,7 @@ class JapanBrasil:
         #print(f'Pila q2: {self.pila.mostrar()}')
 
         #Si hay una U en la pila, desapilo.
-        if(len(self.arr)>0):
+        if(len(self.arr)>=0):
             if(self.pila.items[-1].upper()=='U'):
                 self.pila.desapilar()
                 return self.q3()
@@ -64,9 +65,9 @@ class JapanBrasil:
                 return self.q4()
             
             #Si hay una Z en la pila, desapilo
-            elif(self.pila.items[-1].upper()=='Z'):
-                self.pila.desapilar()
-                return self.q7()
+        elif(self.pila.items[-1].upper()=='Z'):
+            self.pila.desapilar()
+            return self.q7()
     
     def q4(self):
 
