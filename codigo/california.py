@@ -5,7 +5,6 @@ class California:
     def __init__(self,arr):
         self.pila = Pila()
         self.arr = list(arr)
-        #e: no cambia la cadena, desapila.
 
     def q0(self):
         #Si esta vacio, apilo una Z.
